@@ -292,9 +292,6 @@ a {
     align-items: center;
 }
 @media only screen and (min-width: em(600)) {
-    main {
-        margin-top: 2em;
-    }
     .half {
         width: 50%;
         float: left;
@@ -469,7 +466,7 @@ a {
         }
     }
     .site-nav {
-        margin-top: 2em;
+        margin: 2em auto;
     }
     .mobile-menu-toggle {
         display: none;

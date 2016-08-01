@@ -11,17 +11,18 @@ $(document).ready(function () {
     var viewportWidth = $(window).width();
     var siteHeaderHeight = $('.site-header').height();
     setTopPadding(viewportWidth, siteHeaderHeight);
-    // reset top padding to accomodate fixed header when window resized
+    
     $(window).resize(function () {
+        // reset top padding to accomodate fixed header when window resized
         viewportWidth = $(window).width();
         siteHeaderHeight = $('.site-header').height();
         setTopPadding(viewportWidth, siteHeaderHeight);
     });
 
+    // mobile menu toggle handler
     $('.mobile-menu-toggle').click(function () {
         $('.main-nav').slideToggle();
     });
-    
     
     // tabs handler
     $('.tab').click(function(){
@@ -31,12 +32,13 @@ $(document).ready(function () {
         $('#'+panelToShow).addClass('selected');
     });
 
+    var onThisPagePosition = $('.on-this-page').offset();
     //window scroll handler
     $(window).on("scroll  touchmove", function () {
 
         var scrollTop = $(document).scrollTop();
         var headerHeight = $('header').height();
-        var onThisPagePosition = $('.on-this-page').offset();
+        
 
         // minimise header
         if (scrollTop > 100) {
@@ -47,7 +49,7 @@ $(document).ready(function () {
         
         // fix on this page menu when scrolls up (484 is approx header height when shrunk)
         if (viewportWidth > 600) {
-            if (scrollTop >= 484) {
+            if (scrollTop >= (onThisPagePosition.top - headerHeight*0.7)) {
                 $('.on-this-page').addClass('fixed');
                 $('.on-this-page').css('top',headerHeight);
             } else {
@@ -56,4 +58,22 @@ $(document).ready(function () {
             }
         }
     });
+    
+    //smooth scroll
+	$('a[href*=#]:not([href=#])').click(function() {
+	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+	      var target = $(this.hash);
+	      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+	      var scrollLocal = target.offset().top;
+		  console.log(scrollLocal);
+	      if (target.length) {
+            $('html,body').animate({
+                scrollTop: scrollLocal
+            }, 1000);
+                return false;
+          }
+        }
+	  });
+    
+    
 });
