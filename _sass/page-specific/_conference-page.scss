@@ -1,0 +1,145 @@
+/*** conference page ***/
+
+.on-this-page {
+    width: 100%;
+    text-align: center;
+    z-index: 900;
+    display: block;
+    background: #fff;
+    div {
+        padding: 30px 0;
+    }
+    p,
+    ul,
+    li {
+        display: inline;
+        font-size: 14/16*1em;
+        font-weight: 500;
+    }
+    ul {
+        padding: 0;
+    }
+    li {
+        display: inline-block;
+        margin-right: 10px;
+        a {
+            color: $green;
+            border-bottom: none;
+            white-space: nowrap;
+            &:hover {
+                color: $darkgreen;
+                border-bottom: 1px dotted $darkgreen;
+            }
+        }
+        &:before {
+            content: "> ";
+            padding-right: 10px;
+        }
+        &:last-child a {
+            padding: 5px 10px;
+            background: $green;
+            color: #fff;
+            &:hover {
+                border-bottom: none;
+                background: $darkgreen;
+            }
+        }
+    }
+    &.fixed {
+        position: fixed;
+        box-shadow: 0 5px 8px -8px black;
+        & + div {
+            margin-top: 82px;
+        }
+    }
+}
+.theme {
+    color: $green;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 2.2em;
+    max-width: 100%;
+}
+.large-lineheight {
+    line-height: 1.8;
+}
+#overview,
+#speakers,
+#venue {
+    padding: 1em 0;
+    margin-top: 5em;
+    h2 {
+        margin-top: 0;
+    }
+}
+#overview {
+    background: #B0E8DC;
+    color: #257E6B;
+}
+#program .button {
+    margin: 2em 0 0 0;
+}
+.program-elements {
+    @include clearfix;
+    margin: 1em 0 2em 0;
+}
+#speakers,
+#venue {
+    background: #eeeeee;
+}
+#speakers {
+    .profiles {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .profile {
+        margin-bottom: 1em;
+        img {
+            box-shadow: none;
+            width: 80%;
+            border-radius: 50%;
+        }
+        h3 {
+            font-size: 1em;
+            color: #444;
+            font-weight: 300;
+        }
+        p {
+            text-transform: uppercase;
+            color: $green;
+        }
+    }
+}
+#why-when {
+    ul {
+        text-align: left;
+        max-width: 400px;
+        margin: 1em auto;
+        li {
+            font-size: 24/16*1em;
+            color: $green;
+            small {
+                color: #222;
+                display: block;
+                font-size: 0.65em;
+            }
+        }
+    }
+}
+#venue {
+    .two-fifths {
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: em(600)) {
+    #venue {
+        .two-fifths {
+            text-align: left;
+        }
+    }
+}
+#tickets {
+    margin-bottom: 2em;
+}

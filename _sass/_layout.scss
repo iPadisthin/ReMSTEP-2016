@@ -1,0 +1,125 @@
+/*** layout ***/
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+.container {
+    margin: 0 auto;
+    padding: 0 10px;
+    max-width: 1140px;
+    @include clearfix;
+}
+.narrow.container {
+    max-width: 1000px;
+}
+.middle.container {
+    max-width: 835px;
+}
+.flex {
+    display: flex;
+}
+.flex-align-center {
+    align-items: center;
+}
+.inset {
+    padding: 1em 0;
+    background: #B0E8DC;
+    box-shadow: inset 0 8px 8px -8px #696868, inset 0 -8px 8px -8px #696868;
+}
+.clear {
+    clear: both;
+}
+@media only screen and (min-width: em(600)) {
+    .half {
+        width: 50%;
+        float: left;
+        &.centered {
+            float: none;
+            margin: 0 auto;
+        }
+    }
+    .two-fifths {
+        width: 40%;
+        float: left;
+    }
+    .three-fifths {
+        width: 60%;
+        float: left;
+    }
+}
+@media only screen and (min-width: em(640)) {
+    .two-thirds {
+        width: 2/3*100%;
+        float: left;
+        padding-right: 30px;
+    }
+    .one-third {
+        width: 1/3*100%;
+        float: left;
+    }
+    .five-twelths {
+        width: 5/12*100%;
+        float: left;
+    }
+    .seven-twelths {
+        width: 7/12*100%;
+        float: left;
+    }
+}
+.two-max.container {
+    @media only screen and (min-width: em(640)) {
+        display: flex;
+        flex-wrap: wrap;
+        > div {
+            @include clearfix;
+            float: left;
+            width: 1/2*100% - 1/2*100%/20;
+            margin-right: 1*100%/20;
+            &:nth-child(2n) {
+                margin-right: 0;
+            }
+            &:nth-child(2n+1) {
+                clear: left;
+            }
+        }
+    }
+}
+.three-max.container {
+    @media only screen and (min-width: em(480)) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    > div {
+        &.card {
+            padding: 1px 20px 20px 20px;
+            margin: 0 0 10px 0;
+            background: #eaeae0;
+        }
+        @media only screen and (min-width: em(480)) {
+            float: left;
+            width: 1/2*100%;
+            &.card {
+                width: 1/2*100% - 1/2*100%/20;
+                margin: 0 1/2*100%/40 1/2*100%/20 1/2*100%/40;
+                padding: 1px 20px 20px 20px;
+                background: #eaeae0;
+            }
+            &:nth-child(2n+1) {
+                clear: left;
+            }
+        }
+        @media only screen and (min-width: em(700)) {
+            width: 1/3*100%;
+            &.card {
+                width: 1/3*100% - 1/3*100%/20;
+                margin: 0 1/3*100%/40 1/3*100%/20 1/3*100%/40;
+                padding: 1px 20px 20px 20px;
+                background: #eaeae0;
+            }
+            &:nth-child(3n+1) {
+                clear: left;
+            }
+        }
+    }
+}
