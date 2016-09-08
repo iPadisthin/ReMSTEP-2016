@@ -113,6 +113,7 @@ textarea {
 @import "page-header";
 
 /*** components ***/
+@import "components/buttons";
 
 .alert {
     margin: 2em 0;
@@ -121,73 +122,6 @@ textarea {
     border-radius: 6px;
 }
 
-.button {
-    color: $darkgreen;
-    display: inline-block;
-    border: 1px dotted $green;
-    padding: 10px;
-    border-radius: 2px;
-    cursor: pointer;
-    text-align: center;
-    &:visited {
-        color: $darkgreen;
-    }
-    &:hover {
-        color: #eee;
-        text-decoration: none;
-        background: $darkgreen;
-        @include background-image( radial-gradient($green, $darkgreen));
-        border: 1px solid $green;
-    }
-    &.goto {
-        &:after {
-            content: "\f054";
-            font-family: FontAwesome;
-            margin-left: 1.5em;
-            vertical-align: middle;
-        }
-    }
-    &.download {
-        &:after {
-            content: "\f078";
-            font-family: FontAwesome;
-            margin-left: 1.5em;
-            vertical-align: middle;
-        }
-    }
-    &.register {
-        color: #fff;
-        background: $green;
-        text-transform: uppercase;
-        font-size: 24/16*1em;
-        &:hover {
-            color: #eee;
-            text-decoration: none;
-            background: $darkgreen;
-            @include background-image( radial-gradient($green, $darkgreen));
-        }
-    }
-    &.video {
-        background-image: url("/img/play-green.svg");
-        background-repeat: no-repeat;
-        background-position: right 5px center;
-        background-size: 1.5em 1.5em;
-        padding-right: 40px;
-    }
-    &.pill {
-        padding: 3px 10px;
-        border-radius: 20px;
-    }
-    &.disabled {
-        color: #999;
-        border: 1px dotted #999;
-        cursor: default;
-        &:hover {
-            color: #999;
-            background: none;
-        }
-    }
-}
 
 /*** video ***/
 /* http://alistapart.com/article/creating-intrinsic-ratios-for-video */
@@ -592,6 +526,45 @@ ul.tablist {
     }
 }
 
+.info-box-wrapper {
+    position: fixed;
+    top: 0;
+    left:0;
+    bottom:0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .75);
+    z-index: 1001;
+    overflow-y: scroll;
+    
+    display: none;
+    opacity: 0;
+    transition: opacity 5s ease 2s;
+    &.open {
+        display: flex;
+        opacity: 1;
+    }
+}
+.info-box {
+    position: relative;
+    font-size: 80%;
+    margin: auto;
+    width: 100%;
+    max-width: 600px;
+    background: $lightgreen;
+    padding: 30px 40px 40px 40px;
+    box-shadow: -10px -10px #eaeae0;
+    &:after {
+        content: "\f00d";
+        font-family: FontAwesome;
+        font-size: 200%;
+        color: $green;
+        margin-bottom: -10px;
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        cursor: pointer;
+    }
+}
 
 @import "components/slide-show";
 @import "components/video-playlist";

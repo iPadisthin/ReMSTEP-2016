@@ -88,11 +88,14 @@
     background: #eeeeee;
 }
 #speakers {
+     margin-top: 0;
     .profiles {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
     }
+}
+.keynote, #speakers {
     .profile {
         margin-bottom: 1em;
         img {
@@ -109,6 +112,14 @@
             text-transform: uppercase;
             color: $green;
         }
+    }
+}
+.keynote {
+    margin-top: 2em;
+    padding: 1em 0;
+    background: #f7f7f7;
+    .profile {
+        width: 1/3*100%;
     }
 }
 #why-when {

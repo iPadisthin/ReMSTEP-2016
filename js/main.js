@@ -157,4 +157,13 @@ $(document).ready(function () {
         event.preventDefault();
         $('.mailing-list').fadeOut();
     });
+    
+    /* info box show/hide */
+    $('.info.button').click(function(event){
+        event.preventDefault();
+        $(this).next().toggleClass('open');
+    });
+    $('.info-box-wrapper').click(function(){
+        $(this).removeClass('open');
+    });
 });
